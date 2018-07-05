@@ -11,15 +11,19 @@ class News extends Component {
 		var repos = [];
 		this.props.data.news.map((article, index) => 
 			repos.push(
-				<div className="container article" key={index}>
-					<div className="headline">{article.title}</div>
-					<div className="text">{article.text}</div>
+				<div key={index} className="card text-white bg-success mb-3">
+					<div className="card-header">
+				    <h5 className="card-title">{article.title}</h5>
+				    </div>
+				  <div className="card-body">
+				    <p className="card-text">{article.text}</p>
+				  </div>
 				</div>
 			)
 		)
 		return (
 			<div>
-				{ this.props.data.loading === true && <div>Fetching News...</div>}
+				{ this.props.data.loading === true && <div className="mt-4 text-center loading">Получаю данные...</div>}
 				{ this.props.data.loading === false && <div>{repos}</div>}
 			</div>
 		);

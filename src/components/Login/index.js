@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { asyncValidateAuth } from '../../actions/validate.js'
+import './index.css';
 
 class Login extends Component {
 	constructor(props) {
@@ -45,32 +46,42 @@ class Login extends Component {
 	}
 	render() {
 		return (
-			<div className="container col-4 mt-4">
-				<h2 className="text-center mt-3 mb-3">Log In to System</h2>
-				{this.state.error !== null && <div>Invalid email or password</div>}
+			<div className="container col-6 mt-6 card card-block">
+				<h2 className="text-center mt-4 mb-4">Авторизироваться</h2>
+				{this.state.error !== null && <div className="text-center mt-2 mb-4 text-danger">Неправильная почта или пароль</div>}
 				<form onSubmit={this.onFormSubmitHandlerFn}>
-					<input 
-						type="email" 
-						className="form-control mt-2" 
-						name="email"
-						required 
-						placeholder="email"
-						onChange={this.onEmailChangeHandlerFn} 
-						/>
-					<input 
-						type="password" 
-						className="form-control mt-2" 
-						name="password" 
-						required
-						placeholder="Password"
-						onChange={this.onPasswordChangeHandlerFn} 
-						/>
+					<div className="form-group mt-2">
+						<label className="has-float-label">
+						<input 
+							type="email" 
+							className="form-control mt-2" 
+							name="email"
+							required 
+							placeholder="example@qwe.com"
+							onChange={this.onEmailChangeHandlerFn} 
+							/>
+							<span>Адрес эл. почты</span>
+						</label>
+					</div>
+					<div className="form-group mt-4">
+						<label className="has-float-label">
+							<input 
+								type="password" 
+								className="form-control mt-2" 
+								name="password" 
+								required
+								placeholder="12345678"
+								onChange={this.onPasswordChangeHandlerFn} 
+								/>
+								<span>Ваш пароль</span>
+							</label>
+					</div>
 					<input 
 						disabled={this.props.authentication.loading}
 						type="submit" 
-						className="btn btn-primary form-control mt-2" 
+						className="btn btn-primary form-control mt-2 mb-4" 
 						name="login" 
-						value={this.props.authentication.loading ? 'Authentication...' : 'Sign In'} />
+						value={this.props.authentication.loading ? 'Авторизация...' : 'Войти'} />
 				</form>
 			</div>
 		);

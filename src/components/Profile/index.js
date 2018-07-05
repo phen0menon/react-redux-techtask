@@ -7,20 +7,26 @@ function ProfileInfo(props) {
 	const isLoading = props.loading;
 
 	if (isLoading) {
-		return <div>Fetching profile data...</div>
+		return <div>Получаю данные...</div>
 	}
 
 	var arr = [], languages = [];
 	
-	props.data.social.map((element, index) => arr.push(<a key={index} className="list-group-item list-group-item-action" href={element.link}>{element.label}</a>));
-	props.data.languages.map((language, index) => languages.push(<li className="list-group-item" key={index}>{language}</li>));
+	props.data.social.map((element, index) => arr.push(<a className="text-white" key={index} href={element.link}>{element.label}</a>));
+	props.data.languages.map((language, index) => languages.push(<li key={index}>{language}</li>));
 
 	return (
-		<div className="container">
-			<div className="text-center big">Profile Info</div>
-			<div className="mt-5">City: {props.data.city}</div>
-			<div className="mt-4">Languages: <ul className="list-group">{languages}</ul></div>
-			<div className="mt-4">Social: <div className="list-group">{arr}</div></div>
+		<div className="container mt-4">
+
+			<div className="card text-white bg-primary mb-3">
+			  <div className="card-header"><i className="fa fa-user"></i> Личность</div>
+			  <div className="card-body">
+			    <h5 className="card-title">Личная информация</h5>
+			    <p className="card-text"><span className="td-ul">Город проживания: </span><span className="d-block">{props.data.city}</span></p>
+			    <p className="card-text"><span className="td-ul">Знания языков: </span><span className="list-group d-block">{languages}</span></p>
+			    <p className="card-text"><span className="td-ul">Социальные сети: </span><span className="list-group">{arr}</span></p>
+			  </div>
+			</div>
 		</div>
 	);
 }

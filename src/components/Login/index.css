@@ -1,0 +1,19 @@
+input {
+  color: #526d79;
+  font-weight: 400;
+  width: 100%;
+}
+
+input:focus {
+	box-shadow: none !important;
+}
+
+.has-float-label .form-control:placeholder-shown:not(:focus)+* {
+  font-size: 100%;
+  opacity: .5;
+  top: 0.65em;
+  font-weight: 300;
+}
+.mt-6 {
+	margin-top: 140px;
+}

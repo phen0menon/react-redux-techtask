@@ -4,3 +4,9 @@
 .mt-5 {
 	margin-top: 50px;
 }
+li {
+	display: block;
+}
+.td-ul {
+	font-size: 14px;
+}
