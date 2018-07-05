@@ -9,8 +9,7 @@ class Header extends Component {
 		this.loginButtonHandler = this.loginButtonHandler.bind(this);
 	}
 	logoutButtonHandler() {
-		localStorage.removeItem('isAuthorized');
-		localStorage.removeItem('id');
+		localStorage.clear();
 		this.props.history.push('/');
 	}
 	loginButtonHandler() {
