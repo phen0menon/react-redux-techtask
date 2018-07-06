@@ -1,6 +1,7 @@
 # react-redux-techtask 
 
-Learning Redux for a couple of days, I created this application just for experience.
+Learning Redux for a couple of days, I created this application just for experience.<br>
+Production version: https://phen0menon.github.io/react-redux-techtask/
 
 ## Using
 ### `npm start` or `yarn start` 
